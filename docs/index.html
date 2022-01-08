@@ -1,21 +1,151 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html>
-<head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/themes/vue.css" />
-</head>
-<body>
-  <div id="app"></div>
-  <script>
-    window.$docsify = {
-			loadSidebar: true,
-			loadNavbar: true
-    }
-  </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-</body>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="UTF-8" />
+		<link rel="stylesheet" href="//matifycss.manuthecoder.repl.co/src/matify.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div
+        style="
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        "
+      >
+        <h1>Loading...</h1>
+      </div>
+    </div>
+    <script>
+      window.$docsify = {
+        loadSidebar: true,
+        repo: "ManuTheCoder/MatifyCSS",
+        name: '<img src="https://i.ibb.co/ct0tP56/icon-vector-id937979564-k-6-m-937979564-s-612x612-w-0-h-Trl-YEfc-Hr-Ctm-Y4-LJ8f-Rk-Lf5-Lp-Sme-Fmp-Te.jpg" style="width:30px;border-radius:999px;height:30px;vertical-align:middle;margin-right: 10px">MatifyCSS',
+        notFoundPage: "404.md",
+        loadNavbar: true,
+        coverpage: true,
+        search: [
+          "/", // => /README.md
+          "/guide", // => /guide.md
+          "/get-started", // => /get-started.md
+          "/zh-cn/", // => /zh-cn/README.md
+        ],
+
+        // complete configuration parameters
+        search: {
+          maxAge: 86400000, // Expiration time, the default one day
+          paths: "auto", // or 'auto'
+          placeholder: "Type to search",
+
+          // Localization
+          placeholder: {
+            "/": "Type to search...",
+          },
+
+          noData: "No Results!",
+
+          // Localization
+          noData: {
+            "/zh-cn/": "找不到结果",
+            "/": "No Results",
+          },
+
+          // Headline depth, 1 - 6
+          depth: 2,
+
+          hideOtherSidebarContent: true, // whether or not to hide other sidebar content
+
+          // To avoid search index collision
+          // between multiple websites under the same domain
+          namespace: "website-1",
+
+          // Use different indexes for path prefixes (namespaces).
+          // NOTE: Only works in 'auto' mode.
+          //
+          // When initialiazing an index, we look for the first path from the sidebar.
+          // If it matches the prefix from the list, we switch to the corresponding index.
+          pathNamespaces: ["/zh-cn", "/ru-ru", "/ru-ru/v1"],
+
+          // You can provide a regexp to match prefixes. In this case,
+          // the matching substring will be used to identify the index
+          pathNamespaces: /^(\/(zh-cn|ru-ru))?(\/(v1|v2))?/,
+        },
+        share: {
+          reddit: true,
+          linkedin: true,
+          facebook: true,
+          twitter: true,
+          whatsapp: true,
+          telegram: true,
+        },
+        count: {
+          countable: true,
+          position: "top",
+          margin: "10px",
+          float: "right",
+          fontsize: "0.9em",
+          color: "rgb(90,90,90)",
+          language: "english",
+          localization: {
+            words: "",
+            minute: "",
+          },
+          isExpected: true,
+        },
+        pagination: {
+          previousText: "Previous",
+          nextText: "Next",
+          crossChapter: true,
+          crossChapterText: true,
+        },
+        disqus: "https://matifycsss.disqus.com",
+				tabs: {
+					theme: 'material' // default
+				},
+        plugins: [
+          function (hook) {
+            var footer = [
+              `
+				<hr>
+				&copy; 2022. ManuTheCoder.
+				`,
+            ].join("");
+
+            hook.afterEach(function (html) {
+              return html + footer;
+            });
+          },
+        ],
+      };
+      if (typeof navigator.serviceWorker !== "undefined") {
+        navigator.serviceWorker.register("sw.js");
+      }
+    </script>
+		
+		<script src="//matifycss.manuthecoder.repl.co/src/matify.js" defer></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/disqus.min.js"></script>
+
+    <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+    <script src="//unpkg.com/docsify-count/dist/countable.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <script src="//unpkg.com/docsify-share/build/index.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
+    <script src="//https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+  </body>
 </html>
